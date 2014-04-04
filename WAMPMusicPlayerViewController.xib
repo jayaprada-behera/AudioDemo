@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WAMPMusicPlayerViewController">
+            <connections>
+                <outlet property="TrackCurrentPlaybackTimeLbl" destination="bmI-Jg-ffe" id="Vsl-tv-XJc"/>
+                <outlet property="artistNameLbl" destination="i3o-nd-uGw" id="kW0-r1-SGa"/>
+                <outlet property="nextButton" destination="Cvj-9d-T3f" id="0Zs-CZ-VQY"/>
+                <outlet property="playPauseButton" destination="j4i-7f-yTg" id="lrh-Gn-iXe"/>
+                <outlet property="prevButton" destination="l55-bm-d7Y" id="XPm-S2-E8S"/>
+                <outlet property="progressSlider" destination="E2w-s2-BNO" id="YKP-f0-6Zn"/>
+                <outlet property="repeatButton" destination="k0U-fT-k62" id="Xex-Ee-ztv"/>
+                <outlet property="shuffleButton" destination="57W-Wd-F33" id="nNg-1d-KiT"/>
+                <outlet property="songImageView" destination="KFs-qq-vnM" id="gjK-q5-X8c"/>
+                <outlet property="songNameLbl" destination="xHC-40-jGR" id="Qhl-Jf-Fbq"/>
+                <outlet property="trackLengthLbl" destination="aSF-yQ-lPu" id="sr8-F7-Kag"/>
+                <outlet property="view" destination="1" id="3"/>
+                <outlet property="volumeSlider" destination="E3n-wI-QQJ" id="ZSB-uv-l1C"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" id="9vh-wP-H2o">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.png" id="KFs-qq-vnM" userLabel="songImageView">
+                            <rect key="frame" x="0.0" y="107" width="320" height="333"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" id="CpZ-5Z-ns8" userLabel="topView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="E2w-s2-BNO" userLabel="ProgressSlider">
+                                    <rect key="frame" x="60" y="20" width="200" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <connections>
+                                        <action selector="progressEnd" destination="-1" eventType="touchUpOutside" id="K5C-9f-mPx"/>
+                                        <action selector="progressEnd" destination="-1" eventType="touchUpInside" id="Mq5-0C-FSd"/>
+                                        <action selector="trackProgressChanged:" destination="-1" eventType="valueChanged" id="u8m-x3-SXv"/>
+                                    </connections>
+                                </slider>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0:20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bmI-Jg-ffe" userLabel="TrackCurrentPlaybackTimeLbl">
+                                    <rect key="frame" x="20" y="20" width="34" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="3:56" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aSF-yQ-lPu" userLabel="TrackLengthLbl">
+                                    <rect key="frame" x="266" y="20" width="34" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k0U-fT-k62" userLabel="repeatButton">
+                                    <rect key="frame" x="20" y="54" width="44" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" label="Repeat"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" image="Track_Repeat_Off.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="repeatButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="NDd-ku-nkU"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="57W-Wd-F33" userLabel="ShuffleButton">
+                                    <rect key="frame" x="256" y="54" width="44" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" label="Shuffle"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" image="Track_Shuffle_Off.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="Track_Shuffle_On.png"/>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="shuffleButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="tmA-nx-9pg"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="Bmw-kw-bKJ" userLabel="BottomView">
+                            <rect key="frame" x="0.0" y="438" width="320" height="130"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <subviews>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="E3n-wI-QQJ" userLabel="volumeSlider">
+                                    <rect key="frame" x="18" y="95" width="284" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <action selector="volumeChanged:" destination="-1" eventType="valueChanged" id="2rG-cs-fRR"/>
+                                        <action selector="volumeEnd" destination="-1" eventType="touchUpInside" id="2Gu-Is-Ghb"/>
+                                        <action selector="volumeEnd" destination="-1" eventType="touchUpOutside" id="oOj-0a-XIf"/>
+                                    </connections>
+                                </slider>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="l55-bm-d7Y" userLabel="PrevButton">
+                                    <rect key="frame" x="20" y="39" width="50" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" label="Previous song"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" image="Controls_Rewind.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" image="Controls_Rewind_Pressed.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="prevButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="1Mh-4p-9XX"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="j4i-7f-yTg" userLabel="playPauseButton">
+                                    <rect key="frame" x="135" y="39" width="50" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" label="Play"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" image="Controls_Play.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="Controls_Pause.png"/>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="playpauseButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="j86-3Y-N4t"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Cvj-9d-T3f" userLabel="NextButton">
+                                    <rect key="frame" x="250" y="39" width="50" height="48"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration" label="Skip"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" image="Controls_Skip.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" image="Controls_Skip_Pressed.png">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="nextButtonTouchUpInside:" destination="-1" eventType="touchUpInside" id="ySs-Ff-SsZ"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i3o-nd-uGw" userLabel="ArtistName- Label">
+                                    <rect key="frame" x="20" y="12" width="136" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xHC-40-jGR" userLabel="SongName - Label">
+                                    <rect key="frame" x="164" y="12" width="136" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Controls_Pause.png" width="40" height="48"/>
+        <image name="Controls_Play.png" width="40" height="48"/>
+        <image name="Controls_Rewind.png" width="47" height="48"/>
+        <image name="Controls_Rewind_Pressed.png" width="47" height="48"/>
+        <image name="Controls_Skip.png" width="48" height="48"/>
+        <image name="Controls_Skip_Pressed.png" width="48" height="48"/>
+        <image name="Track_Repeat_Off.png" width="20" height="18"/>
+        <image name="Track_Shuffle_Off.png" width="20" height="18"/>
+        <image name="Track_Shuffle_On.png" width="20" height="18"/>
+        <image name="music.png" width="40" height="40"/>
+    </resources>
+</document>
